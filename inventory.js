@@ -1,0 +1,29 @@
+
+const items = [
+  {id: 1,  product_ID: 5,  topOrBottom: "top",    Style: "Formal",   Season: "Winter", image: "https://png.pngtree.com/png-vector/20250205/ourmid/pngtree-passport-photo-template-for-women-white-shirt-standard-style-transparent-background-png-image_15406886.png"},
+  {id: 2,  product_ID: 3,  topOrBottom: "bottom", Style: "Outing",   Season: "Spring", image: data:image/avif;base64,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"},
+
+  {id: 3,  product_ID: 12, topOrBottom: "top",    Style: "Formal",   Season: "Summer", image: "https://i.etsystatic.com/6700091/r/il/b81348/1948999566/il_570xN.1948999566_9wla.jpg"},
+
+  {id: 4,  product_ID: 21, topOrBottom: "top",    Style: "Formal",   Season: "Fall"},
+
+  {id: 5,  product_ID: 1,  topOrBottom: "top",    Style: "Casual",   Season: "Winter"},
+  {id: 6,  product_ID: 2,  topOrBottom: "bottom", Style: "Casual",   Season: "Winter"},
+  {id: 7,  product_ID: 4,  topOrBottom: "top",    Style: "Outing",   Season: "Spring"},
+  {id: 8,  product_ID: 6,  topOrBottom: "bottom", Style: "Outing",   Season: "Spring"},
+  {id: 9,  product_ID: 7,  topOrBottom: "top",    Style: "Formal",   Season: "Summer"},
+  {id: 10, product_ID: 8,  topOrBottom: "bottom", Style: "Formal",   Season: "Summer"},
+  {id: 11, product_ID: 9,  topOrBottom: "top",    Style: "Casual",   Season: "Fall"},
+  {id: 12, product_ID: 10, topOrBottom: "bottom", Style: "Casual",   Season: "Fall"},
+
+  {id: 13, product_ID: 11, topOrBottom: "top",    Style: "Sport",    Season: "Winter"},
+  {id: 14, product_ID: 13, topOrBottom: "bottom", Style: "Sport",    Season: "Winter"},
+  {id: 15, product_ID: 14, topOrBottom: "top",    Style: "Loungewear", Season: "Spring"},
+  {id: 16, product_ID: 15, topOrBottom: "bottom", Style: "Loungewear", Season: "Spring"},
+  {id: 17, product_ID: 16, topOrBottom: "top",    Style: "Party",    Season: "Summer"},
+  {id: 18, product_ID: 17, topOrBottom: "bottom", Style: "Party",    Season: "Summer"},
+ 
+];
+
+
+{id: 1, name: "Gingham Gorgeous", category: "beauty", subcategory: "perfume", location: "top", store: "Bath and Body work", brand: "Bath and Body Work", timeGot: "spring semester", price: "$$", uses: "weekly", image: "https://shopatshams.com.pk/cdn/shop/files/www.shopatshams.com.pk_b24d2f50-ff83-48ec-90b9-9f50e48ee0f5.png?v=1755530274"},
