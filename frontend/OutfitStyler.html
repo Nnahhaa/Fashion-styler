@@ -14,8 +14,7 @@
         <header>LOOKS</header>
 
         <div class="hero">
-        <h2><i>Your Style</i></h2>
-        <h2>curated by AI</h2>
+        <h2><i>Your style <br> currated by AI</i></h2>
         <button>Take a look ></button>
       </div>
         
@@ -23,30 +22,39 @@
         <div id="fit-section">
             <h3>Choose your fit today</h3>
             <div class="filters">
-            <select name="season" id="season">
-                <option value="">Season</option>
-                <option value="summer">Summer</option>
-                <option value="spring">Spring</option>
-                <option value="fall">Fall</option>
-                <option value="winter">Winter</option>
+            <select class="drop" id="style">
+                <option class="content" value="">Season</option>
+                <option class="content" value="summer">Summer</option>
+                <option class="content" value="spring">Spring</option>
+                <option class="content" value="fall">Fall</option>
+                <option class="content" value="winter">Winter</option>
             </select>
 
 
-            <select name="style" id="style">
-                <option value="">-- Style --</option>
-                <option value="casual">Casual</option>
-                <option value="formal">Formal</option>
-                <option value="function">Function</option>
+            <select class="drop" id="style">
+                <option class="content" value="">Style</option>
+                <option class="content" value="casual">Casual</option>
+                <option class="content" value="formal">Formal</option>
+                <option class="content" value="function">Function</option>
             </select>
-            <span><i>Randomize</i></span>
+            <button id="random"><i>Randomize</i></button>
             <span>Saved</span>
             </div>
 
             <div class="outfit-selector">
-                <div class="navrow"><span>&lt;</span><span>&gt;</span></div>
-                <img class="top" src="https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/467214/sub/goods_467214_sub14_3x4.jpg?width=600" alt="shirt" width="500" position=center>
-                <div class="navrow"><span>&lt;</span><span>&gt;</span></div>
-                <img src="https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/455640/item/goods_05_455640_3x4.jpg?width=600" alt="pants" width="500">
+
+            <div class="navrow">
+                <span class="navleft">&lt;</span>
+                <img class="item" src="https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/467214/sub/goods_467214_sub14_3x4.jpg?width=600" alt="shirt" width="350" position=center>
+                <span class="navright">&gt;</span>
+            </div>
+
+                <div class="navrow">
+                <span class="navleft">&lt;</span>
+                <img class="item" src="https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/455640/item/goods_05_455640_3x4.jpg?width=600" alt="pants" width="350">
+                <span class="navright">&gt;</span>
+            </div>
+
             </div>
 
             <div class="faves">

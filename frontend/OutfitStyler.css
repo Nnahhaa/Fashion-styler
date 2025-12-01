@@ -56,6 +56,24 @@ select{
     border-radius: 20px;
     width: 185px;
     height: 35px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #c9e8ff;
+    position: relative;
+    display: inline-block;
+}
+
+.content{
+    position: absolute;
+    background-color: #c9e8ff;
+    min-width: 160px;
+    overflow: auto;
+    
+}
+
+
+select:hover{
+    background-color: #b8baff;
 }
 
 .filters{
@@ -74,3 +92,52 @@ select{
     margin: 0 auto;
     width: fit-content;
 }
+
+.filters span{
+    cursor: pointer;
+    
+}
+
+.outfit-selector{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item{
+    margin: 30px 0;
+}
+
+.faves{
+    
+    bottom: 20px;
+    right: 20px;
+    font-size: 50px;
+    color: #6a6cff;
+    cursor: pointer;
+}
+
+#random{
+    border-radius: 20px;
+    width: 185px;
+    height: 35px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #c9e8ff;
+}
+
+#random:hover{
+    background-color: #b8baff;
+}
+
+.navrow span{
+    font-size: 80px;
+    cursor: pointer;
+    user-select: none;
+    color: #6666ff;
+    cursor: pointer;
+    justify-content: space-between;
+    position: relative;
+    display: inline-block;
+}
+
