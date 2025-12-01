@@ -21,9 +21,14 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            height: 300px;
         }
 
         h2, h3, h4 { color: white; }
+
+        h3{
+            margin-left: 25px;
+        }
 
         header{
             background: #6666ff;
@@ -111,9 +116,8 @@
                     <option value="function">Function</option>
                 </select>
 
-                <span id="randomize"><i>Randomize</i></span>
+                <span id="randomize"><i>Recommend</i></span>
 
-                <a href="saved.html">Saved</a>
             </div>
 
             <div class="outfit-selector">
@@ -137,36 +141,68 @@
     const clothes = [
         {id:1, name:"Cashmere Sweater", type:"Top", season:"fall", style:"formal", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/465734/sub/goods_465734_sub14_3x4.jpg"},
         {id:2, name:"Washable Knit Cable Hoodie", type:"Top", season:"fall", style:"casual", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/478871/sub/goods_478871_sub14_3x4.jpg"},
-        {id:3, name:"Lace-Trimmed Camisole Top", type:"Top", season:"fall", style:"function", img:"https://image.hm.com/assets/hm/74/81/748118944abd4d889fae1c9b0a3692e503f3017b.jpg?imwidth=2160"},
+        {id:3, name:"Lace-Trimmed Camisole Top", type:"Top", season:"fall", style:"function", img:"https://image.hm.com/assets/hm/dd/dd/ddddc69b915ed268240970fc3d88a6fa00031e76.jpg?imwidth=2160"},
+        {id:38, name:"nirvshirt", type:"Top", season:"fall", style:"casual", img:"https://image.hm.com/assets/hm/53/38/5338de6b553e180128a9953c2e0b51db6960e23b.jpg?imwidth=2160"},
+        {id:39, name:"quarter-zip", type:"Top", season:"fall", style:"formal", img:"https://image.hm.com/assets/hm/5c/8d/5c8dd5d5ba569294cc212c7eb133329c71ee8819.jpg?imwidth=2160"},
+        {id:42, name:"furcrop", type:"Top", season:"fall", style:"function", img:"https://image.hm.com/assets/hm/0a/a3/0aa3742e5447c801ac8b13472e7e0e261cea186d.jpg?imwidth=2160"},
+        
 
         {id:4, name:"Milano Ribbed Knitted Jacket", type:"Top", season:"winter", style:"formal", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/479775/sub/goods_479775_sub14_3x4.jpg"},
-        {id:5, name:"Soft Velour Mini T-Shirt", type:"Top", season:"winter", style:"casual", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/483245/sub/goods_483245_sub14_3x4.jpg"},
+        {id:5, name:"cash-sweatshirt", type:"Top", season:"winter", style:"casual", img:"https://image.hm.com/assets/hm/7a/4b/7a4b002af24f80e662090ba48e7a30643ca9f01f.jpg?imwidth=2160"},
         {id:6, name:"Twist-Detail Crop Top", type:"Top", season:"winter", style:"function", img:"https://image.hm.com/assets/hm/fa/0d/fa0d63c9d6885f13ffdbd4cd02c1ca668fd3c915.jpg?imwidth=2160"},
+        {id:43, name:"haveniceday", type:"Top", season:"winter", style:"casual", img:"https://image.hm.com/assets/hm/41/38/41383190177b1bc5edd0e2eaaa67df047d520381.jpg?imwidth=2160"},
+        {id:44, name:"trenchcoat", type:"Top", season:"winter", style:"formal", img:"https://image.hm.com/assets/hm/dd/5d/dd5ded85b80cb96f60246a027748baf538881290.jpg?imwidth=564"},
+        {id:46, name:"bomber", type:"Top", season:"winter", style:"function", img:"https://image.hm.com/assets/hm/44/99/44992d7844acb34d7a7933fdebebb7c6578b88f2.jpg?imwidth=2160"},
+
 
         {id:7, name:"Linen Blend Short Sleeve Shirt", type:"Top", season:"spring", style:"formal", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/475651/item/goods_09_475651_3x4.jpg"},
         {id:8, name:"Mini T-Shirt", type:"Top", season:"spring", style:"casual", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/465760/sub/goods_465760_sub14_3x4.jpg?width=400"},
         {id:9, name:"Bandeau Peplum Top", type:"Top", season:"spring", style:"function", img:"https://image.hm.com/assets/hm/5b/69/5b694df645fa4849e0b146835e77d60a114ff0a5.jpg?imwidth=2160"},
+        {id:26, name:"Chainsaw_shirt", type:"Top", season:"summer", style:"casual", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/485080/sub/goods_485080_sub14_3x4.jpg"},
+        {id:32, name:"Tank", type:"Top", season:"spring", style:"casual", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/457517/sub/goods_457517_sub14_3x4.jpg"},
+        {id:34, name:"shirtdress", type:"Top", season:"spring", style:"formal", img:"https://image.hm.com/assets/hm/7d/bb/7dbba0fb123b4dd7681597a7998b9a15df938911.jpg?imwidth=2160"},
+        {id:37, name:"funcshirt", type:"Top", season:"spring", style:"function", img:"https://image.hm.com/assets/hm/c0/de/c0dea89e9fbf9dbb260fb742fd91746510c85fdd.jpg?imwidth=2160"},
+
 
         {id:10, name:"Sleeveless Peplum Top", type:"Top", season:"summer", style:"formal", img:"https://image.hm.com/assets/hm/55/46/554661cc6a987bf89444c0eedadad4b863237480.jpg?imwidth=2160"},
         {id:11, name:"Jacquard-Knit Peplum Top", type:"Top", season:"summer", style:"casual", img:"https://image.hm.com/assets/hm/46/d5/46d57e1e8b97cb804ea98ee49d07d1cdb1270fb6.jpg?imwidth=768"},
         {id:12, name:"Short Vest", type:"Top", season:"summer", style:"function", img:"https://image.hm.com/assets/hm/f2/03/f203b0eacc3b2c3810db664094b4881a2b3ebd08.jpg?imwidth=2160"},
+        {id:28, name:"polo shirt", type:"Top", season:"summer", style:"formal", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/475367/sub/goods_475367_sub14_3x4.jpg"},
+        {id:30, name:"niceshirt", type:"Top", season:"summer", style:"function", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/464938/sub/goods_464938_sub14_3x4.jpg"},
 
+        
         /* BOTTOMS */
         {id:13, name:"Flare Pants", type:"Bottom", season:"fall", style:"formal", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/479702/sub/goods_479702_sub14_3x4.jpg"},
         {id:14, name:"DRY Sweat Barrel Pants", type:"Bottom", season:"fall", style:"casual", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/479619/sub/goods_479619_sub14_3x4.jpg"},
         {id:15, name:"Satin Skirt", type:"Bottom", season:"fall", style:"function", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/469830/sub/goods_469830_sub14_3x4.jpg"},
+        {id:25, name:"Nice Pants", type:"Bottom", season:"fall", style:"function", img:"https://image.hm.com/assets/hm/a3/45/a34534d4fe4c5da0088f521580b10fa46b89d52f.jpg?imwidth=2160"},
+        {id:40, name:"sweatpants", type:"Bottom", season:"fall", style:"casual", img:"https://image.hm.com/assets/hm/65/5a/655adb624c05673ec8beb940ce9294f4a76ec6b4.jpg?imwidth=2160"},
+        {id:41, name:"coolpants", type:"Bottom", season:"fall", style:"formal", img:"https://image.hm.com/assets/hm/52/1b/521b45ef6d503e0aacefc42e3a6e8c81bac3e3e3.jpg?imwidth=2160"},
+ 
 
         {id:16, name:"Smart Wide Pants", type:"Bottom", season:"winter", style:"formal", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/479292/sub/goods_479292_sub14_3x4.jpg"},
         {id:17, name:"Warm Lined Pants", type:"Bottom", season:"winter", style:"casual", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/479402/sub/goods_479402_sub15_3x4.jpg"},
         {id:18, name:"Smocked Velour Skirt", type:"Bottom", season:"winter", style:"function", img:"https://image.hm.com/assets/hm/e9/0c/e90ceb705d4d893875c6fe23d0f31cc25a05852e.jpg?imwidth=2160"},
+        {id:45, name:"suitpants", type:"Bottom", season:"winter", style:"formal", img:"https://image.hm.com/assets/hm/06/8e/068e8a0d8549174ac4f31c9a6a1199fb56f69047.jpg?imwidth=2160"},
+        {id:46, name:"relaxedsweats", type:"Bottom", season:"winter", style:"casual", img:"https://image.hm.com/assets/hm/f9/58/f958ce1de5d552f22640cd3b7ab1bdf5f5b070ec.jpg?imwidth=2160"},
+        {id:47, name:"dresscargos", type:"Bottom", season:"winter", style:"function", img:"https://image.hm.com/assets/hm/f5/67/f56781992a265c71321ea14db5c2b31b1205094c.jpg?imwidth=2160"},
+
 
         {id:19, name:"Interlock Shorts", type:"Bottom", season:"spring", style:"formal", img:"https://image.hm.com/assets/hm/a0/9a/a09ae58d4dcc69209a8dd9beb04ad8aea77e49cd.jpg?imwidth=2160"},
         {id:20, name:"Belted Shorts", type:"Bottom", season:"spring", style:"casual", img:"https://image.hm.com/assets/hm/6b/5d/6b5dc09c6d133449fcf1b6433f25dc27a9280b1e.jpg?imwidth=2160"},
         {id:21, name:"Pleated Skort", type:"Bottom", season:"spring", style:"function", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/480302/sub/goods_480302_sub14_3x4.jpg"},
+        {id:33, name:"sweatshorts", type:"Bottom", season:"spring", style:"casual", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/476225/sub/goods_476225_sub14_3x4.jpg"},
+        {id:35, name:"firepants", type:"Bottom", season:"spring", style:"formal", img:"https://image.hm.com/assets/hm/8a/bb/8abbad63b34517108327f5a1b59d6557c286e4ce.jpg?imwidth=2160"},
+        {id:36, name:"cargo-pants", type:"Bottom", season:"spring", style:"function", img:"https://image.hm.com/assets/hm/b1/20/b12032614ab1045387427949fa4a46be492c4e48.jpg?imwidth=2160"},
 
+        
         {id:22, name:"Straight Linen-Blend Trousers", type:"Bottom", season:"summer", style:"formal", img:"https://image.hm.com/assets/hm/fe/7a/fe7ae577fa9cc9231baf1bfa005c14f80aea32d0.jpg?imwidth=2160"},
         {id:23, name:"Sweatshorts", type:"Bottom", season:"summer", style:"casual", img:"https://image.hm.com/assets/hm/1e/ae/1eaed6b8d67777a04f547112907565abfca1dbbf.jpg?imwidth=2160"},
-        {id:24, name:"Embellished Mini Skirt", type:"Bottom", season:"summer", style:"function", img:"https://image.hm.com/assets/hm/1a/87/1a87140b0ecf733feb6531b92858c483d01af172.jpg?imwidth=2160"}
+        {id:24, name:"Embellished Mini Skirt", type:"Bottom", season:"summer", style:"function", img:"https://image.hm.com/assets/hm/1a/87/1a87140b0ecf733feb6531b92858c483d01af172.jpg?imwidth=2160"},
+        {id:27, name:"active-shorts", type:"Bottom", season:"summer", style:"casual", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/477753/sub/goods_477753_sub14_3x4.jpg"},
+        {id:29, name:"dress-pants", type:"Bottom", season:"summer", style:"formal", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/462429/sub/goods_462429_sub14_3x4.jpg"},
+        {id:31, name:"jeans", type:"Bottom", season:"summer", style:"function", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/481255/sub/goods_481255_sub14_3x4.jpg"}
+
     ];
 
 
