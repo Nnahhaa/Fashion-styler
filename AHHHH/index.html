@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outfit Styler</title>
+
+    <style>
+        body{
+            margin: 0;
+            font-family: Futura, "Trebuchet MS";
+            background-color: #0c0c16;
+        }
+
+        .hero{
+            background-image: url("https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHp4ZWs1YzgzZWQzODIyczcxa3dvbmpmNW5jdnIwYWN4YWptbjg5YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/8w61HSu6xQjoa2NzKN/giphy.gif");
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        h2, h3, h4 { color: white; }
+
+        header{
+            background: #6666ff;
+            color: white;
+            padding: 20px;
+            font-size: 22px;
+        }
+
+        span{
+            color: white;
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        span:hover{
+            text-decoration: underline;
+        }
+
+        select{
+            border-radius: 20px;
+            width: 185px;
+            height: 35px;
+        }
+
+        .filters{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 75px;
+        }
+
+        .outfit-selector{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            width: fit-content;
+        }
+
+        .navrow span {
+            font-size: 20px;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+
+        img {
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page">
+
+        <header>LOOKS</header>
+
+        <div class="hero">
+            <h2><i>Your Style</i></h2>
+            <h2>curated by AI</h2>
+        </div>
+
+        <div id="fit-section">
+            <h3>Choose your fit today</h3>
+
+            <div class="filters">
+                <select name="season" id="seasonFilter">
+                    <option value="">Season</option>
+                    <option value="summer">Summer</option>
+                    <option value="spring">Spring</option>
+                    <option value="fall">Fall</option>
+                    <option value="winter">Winter</option>
+                </select>
+
+                <select name="style" id="styleFilter">
+                    <option value="">-- Style --</option>
+                    <option value="casual">Casual</option>
+                    <option value="formal">Formal</option>
+                    <option value="function">Function</option>
+                </select>
+
+                <span id="randomize"><i>Randomize</i></span>
+
+                <a href="saved.html">Saved</a>
+            </div>
+
+            <div class="outfit-selector">
+                <div class="navrow top-nav"><span>&lt;</span><span>&gt;</span></div>
+
+                <img class="top" 
+                     src="" 
+                     alt="shirt" width="500">
+
+                <div class="navrow bottom-nav"><span>&lt;</span><span>&gt;</span></div>
+
+                <img class="bottom" 
+                     src="" 
+                     alt="pants" width="500">
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+    const clothes = [
+        {id:1, name:"Cashmere Sweater", type:"Top", season:"fall", style:"formal", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/465734/sub/goods_465734_sub14_3x4.jpg"},
+        {id:2, name:"Washable Knit Cable Hoodie", type:"Top", season:"fall", style:"casual", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/478871/sub/goods_478871_sub14_3x4.jpg"},
+        {id:3, name:"Lace-Trimmed Camisole Top", type:"Top", season:"fall", style:"function", img:"https://image.hm.com/assets/hm/74/81/748118944abd4d889fae1c9b0a3692e503f3017b.jpg?imwidth=2160"},
+
+        {id:4, name:"Milano Ribbed Knitted Jacket", type:"Top", season:"winter", style:"formal", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/479775/sub/goods_479775_sub14_3x4.jpg"},
+        {id:5, name:"Soft Velour Mini T-Shirt", type:"Top", season:"winter", style:"casual", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/483245/sub/goods_483245_sub14_3x4.jpg"},
+        {id:6, name:"Twist-Detail Crop Top", type:"Top", season:"winter", style:"function", img:"https://image.hm.com/assets/hm/fa/0d/fa0d63c9d6885f13ffdbd4cd02c1ca668fd3c915.jpg?imwidth=2160"},
+
+        {id:7, name:"Linen Blend Short Sleeve Shirt", type:"Top", season:"spring", style:"formal", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/475651/item/goods_09_475651_3x4.jpg"},
+        {id:8, name:"Mini T-Shirt", type:"Top", season:"spring", style:"casual", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/465760/sub/goods_465760_sub14_3x4.jpg?width=400"},
+        {id:9, name:"Bandeau Peplum Top", type:"Top", season:"spring", style:"function", img:"https://image.hm.com/assets/hm/5b/69/5b694df645fa4849e0b146835e77d60a114ff0a5.jpg?imwidth=2160"},
+
+        {id:10, name:"Sleeveless Peplum Top", type:"Top", season:"summer", style:"formal", img:"https://image.hm.com/assets/hm/55/46/554661cc6a987bf89444c0eedadad4b863237480.jpg?imwidth=2160"},
+        {id:11, name:"Jacquard-Knit Peplum Top", type:"Top", season:"summer", style:"casual", img:"https://image.hm.com/assets/hm/46/d5/46d57e1e8b97cb804ea98ee49d07d1cdb1270fb6.jpg?imwidth=768"},
+        {id:12, name:"Short Vest", type:"Top", season:"summer", style:"function", img:"https://image.hm.com/assets/hm/f2/03/f203b0eacc3b2c3810db664094b4881a2b3ebd08.jpg?imwidth=2160"},
+
+        /* BOTTOMS */
+        {id:13, name:"Flare Pants", type:"Bottom", season:"fall", style:"formal", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/479702/sub/goods_479702_sub14_3x4.jpg"},
+        {id:14, name:"DRY Sweat Barrel Pants", type:"Bottom", season:"fall", style:"casual", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/479619/sub/goods_479619_sub14_3x4.jpg"},
+        {id:15, name:"Satin Skirt", type:"Bottom", season:"fall", style:"function", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/469830/sub/goods_469830_sub14_3x4.jpg"},
+
+        {id:16, name:"Smart Wide Pants", type:"Bottom", season:"winter", style:"formal", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/479292/sub/goods_479292_sub14_3x4.jpg"},
+        {id:17, name:"Warm Lined Pants", type:"Bottom", season:"winter", style:"casual", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/479402/sub/goods_479402_sub15_3x4.jpg"},
+        {id:18, name:"Smocked Velour Skirt", type:"Bottom", season:"winter", style:"function", img:"https://image.hm.com/assets/hm/e9/0c/e90ceb705d4d893875c6fe23d0f31cc25a05852e.jpg?imwidth=2160"},
+
+        {id:19, name:"Interlock Shorts", type:"Bottom", season:"spring", style:"formal", img:"https://image.hm.com/assets/hm/a0/9a/a09ae58d4dcc69209a8dd9beb04ad8aea77e49cd.jpg?imwidth=2160"},
+        {id:20, name:"Belted Shorts", type:"Bottom", season:"spring", style:"casual", img:"https://image.hm.com/assets/hm/6b/5d/6b5dc09c6d133449fcf1b6433f25dc27a9280b1e.jpg?imwidth=2160"},
+        {id:21, name:"Pleated Skort", type:"Bottom", season:"spring", style:"function", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/480302/sub/goods_480302_sub14_3x4.jpg"},
+
+        {id:22, name:"Straight Linen-Blend Trousers", type:"Bottom", season:"summer", style:"formal", img:"https://image.hm.com/assets/hm/fe/7a/fe7ae577fa9cc9231baf1bfa005c14f80aea32d0.jpg?imwidth=2160"},
+        {id:23, name:"Sweatshorts", type:"Bottom", season:"summer", style:"casual", img:"https://image.hm.com/assets/hm/1e/ae/1eaed6b8d67777a04f547112907565abfca1dbbf.jpg?imwidth=2160"},
+        {id:24, name:"Embellished Mini Skirt", type:"Bottom", season:"summer", style:"function", img:"https://image.hm.com/assets/hm/1a/87/1a87140b0ecf733feb6531b92858c483d01af172.jpg?imwidth=2160"}
+    ];
+
+
+    /* State, do you know the muffin man? */
+    let currentTops = [];
+    let currentBottoms = [];
+
+    let topIndex = 0;
+    let bottomIndex = 0;
+
+
+    /* Filtering, yes i know the muffin man */
+    function updateFilteredLists() {
+        const season = document.getElementById("seasonFilter").value;
+        const style = document.getElementById("styleFilter").value;
+
+        let filtered = clothes.filter(item => {
+            const matchSeason = !season || item.season === season;
+            const matchStyle  = !style  || item.style  === style;
+            return matchSeason && matchStyle;
+        });
+
+        if (filtered.length === 0) filtered = clothes;
+
+        currentTops = filtered.filter(i => i.type === "Top");
+        currentBottoms = filtered.filter(i => i.type === "Bottom");
+
+        topIndex = 0;
+        bottomIndex = 0;
+
+        displayCurrent();
+    }
+
+
+    /* show top and bottom, hehehe, who-who lives on drewy lane? */
+    function displayCurrent() {
+        document.querySelector(".top").src = currentTops[topIndex].img;
+        document.querySelector(".bottom").src = currentBottoms[bottomIndex].img;
+    }
+
+
+    /* nav arrows, well shes married to the muffin */ 
+    document.querySelector(".top-nav").children[0].onclick = () => {
+        topIndex = (topIndex - 1 + currentTops.length) % currentTops.length;
+        displayCurrent();
+    };
+    document.querySelector(".top-nav").children[1].onclick = () => {
+        topIndex = (topIndex + 1) % currentTops.length;
+        displayCurrent();
+    };
+
+    document.querySelector(".bottom-nav").children[0].onclick = () => {
+        bottomIndex = (bottomIndex - 1 + currentBottoms.length) % currentBottoms.length;
+        displayCurrent();
+    };
+    document.querySelector(".bottom-nav").children[1].onclick = () => {
+        bottomIndex = (bottomIndex + 1) % currentBottoms.length;
+        displayCurrent();
+    };
+
+
+    /* randomizer, THE MUFFIN MAN?!!!! */
+    document.getElementById("randomize").onclick = () => {
+        topIndex = Math.floor(Math.random() * currentTops.length);
+        bottomIndex = Math.floor(Math.random() * currentBottoms.length);
+        displayCurrent();
+    };
+
+
+    /* Filter changes, THE MUFFIN MANNNN*/
+    document.getElementById("seasonFilter").onchange = updateFilteredLists;
+    document.getElementById("styleFilter").onchange  = updateFilteredLists;
+
+
+    /* defualt */
+    updateFilteredLists();
+
+    
+    </script>
+
+</body>
+</html>
