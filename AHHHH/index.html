@@ -57,6 +57,11 @@
             height: 35px;
         }
 
+        #randomize{
+            transition: all 0.5s;
+        }
+       
+
         .filters{
             display: flex;
             flex-direction: row;
@@ -98,7 +103,7 @@
         </div>
 
         <div id="fit-section">
-            <h3>Choose your fit today</h3>
+            <h3 style="text-align:center;">Choose your fit today</h3>
 
             <div class="filters">
                 <select name="season" id="seasonFilter">
@@ -116,11 +121,11 @@
                     <option value="function">Function</option>
                 </select>
 
-                <span id="randomize"><i>Recommend</i></span>
+                <span id="randomize"><a href="#selector"><i>Recommend</i></a></span>
 
             </div>
 
-            <div class="outfit-selector">
+            <div id="selector" class="outfit-selector">
                 <div class="navrow top-nav"><span>&lt;</span><span>&gt;</span></div>
 
                 <img class="top" 
