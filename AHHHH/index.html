@@ -53,7 +53,7 @@
 
         select{
             border-radius: 20px;
-            width: 185px;
+            width: 160px;
             height: 35px;
         }
 
@@ -85,6 +85,10 @@
             padding: 5px 10px;
         }
 
+        option{
+            text-align: center;
+        }
+
         img {
             border-radius: 10px;
         }
@@ -107,7 +111,7 @@
 
             <div class="filters">
                 <select name="season" id="seasonFilter">
-                    <option value="">Season</option>
+                    <option class="placehold" value=""> Season</option>
                     <option value="summer">Summer</option>
                     <option value="spring">Spring</option>
                     <option value="fall">Fall</option>
@@ -115,7 +119,7 @@
                 </select>
 
                 <select name="style" id="styleFilter">
-                    <option value="">-- Style --</option>
+                    <option class="placehold" value=""> Style</option>
                     <option value="casual">Casual</option>
                     <option value="formal">Formal</option>
                     <option value="function">Function</option>
