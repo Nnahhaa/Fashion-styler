@@ -130,6 +130,8 @@
             </div>
 
             <div id="selector" class="outfit-selector">
+                <span class="advice" id="weather-advice"></span>
+
                 <div class="navrow top-nav"><span>&lt;</span><span>&gt;</span></div>
 
                 <img class="top" 
@@ -146,7 +148,9 @@
         </div>
     </div>
 
+    
     <script>
+        
     const clothes = [
         {id:1, name:"Cashmere Sweater", type:"Top", season:"fall", style:"formal", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/465734/sub/goods_465734_sub14_3x4.jpg"},
         {id:2, name:"Washable Knit Cable Hoodie", type:"Top", season:"fall", style:"casual", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/478871/sub/goods_478871_sub14_3x4.jpg"},
@@ -181,6 +185,7 @@
 
         
         /* BOTTOMS */
+    
         {id:13, name:"Flare Pants", type:"Bottom", season:"fall", style:"formal", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/479702/sub/goods_479702_sub14_3x4.jpg"},
         {id:14, name:"DRY Sweat Barrel Pants", type:"Bottom", season:"fall", style:"casual", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/479619/sub/goods_479619_sub14_3x4.jpg"},
         {id:15, name:"Satin Skirt", type:"Bottom", season:"fall", style:"function", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/469830/sub/goods_469830_sub14_3x4.jpg"},
@@ -212,8 +217,10 @@
         {id:29, name:"dress-pants", type:"Bottom", season:"summer", style:"formal", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/462429/sub/goods_462429_sub14_3x4.jpg"},
         {id:31, name:"jeans", type:"Bottom", season:"summer", style:"function", img:"https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/481255/sub/goods_481255_sub14_3x4.jpg"}
 
+    
     ];
 
+    
 
     /* State, do you know the muffin man? */
     let currentTops = [];
@@ -222,8 +229,10 @@
     let topIndex = 0;
     let bottomIndex = 0;
 
+    const API_URL = "https://overfill-faculty-overbuilt.ngrok-free.dev";
 
     /* Filtering, yes i know the muffin man */
+
     function updateFilteredLists() {
         const season = document.getElementById("seasonFilter").value;
         const style = document.getElementById("styleFilter").value;
@@ -252,7 +261,6 @@
         document.querySelector(".bottom").src = currentBottoms[bottomIndex].img;
     }
 
-
     /* nav arrows, well shes married to the muffin */ 
     document.querySelector(".top-nav").children[0].onclick = () => {
         topIndex = (topIndex - 1 + currentTops.length) % currentTops.length;
@@ -278,16 +286,39 @@
         topIndex = Math.floor(Math.random() * currentTops.length);
         bottomIndex = Math.floor(Math.random() * currentBottoms.length);
         displayCurrent();
-    };
 
+        //Call backend for weather advice
+        navigator.geolocation.getCurrentPosition(async (pos) => {
+            try {
+                const res = await fetch(`${API_URL}/recommend`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "ngrok-skip-browser-warning": "true"
+                    },
+                    body: JSON.stringify({
+                        latitude: pos.coords.latitude,
+                        longitude: pos.coords.longitude,
+                    })
+                });
+
+                const data = await res.json();
+
+                document.getElementById("weather-advice").innerText =
+                `${data.weather.temperature}°C + ${data.weather.rain_probability}% - ${data.advice}`;
+            } catch (err) {
+                document.getElementById("weather-advice").innerText = "could not load weather data.";
+            }
+        });
+    };
 
     /* Filter changes, THE MUFFIN MANNNN*/
     document.getElementById("seasonFilter").onchange = updateFilteredLists;
     document.getElementById("styleFilter").onchange  = updateFilteredLists;
 
-
     /* defualt */
     updateFilteredLists();
+    
 
     
     </script>
