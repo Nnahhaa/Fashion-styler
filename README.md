@@ -1,1 +1,21 @@
-ReadMe
+# Outfit Styler
+
+A browser-based outfit picker with seasonal/style filters, outfit randomization, and location-based weather advice.
+
+## Run locally
+
+Python 3 is required. From the repository root, run:
+
+```powershell
+python -m http.server 8000
+```
+
+Open http://localhost:8000/AHHHH/ and stop the server with Ctrl+C when finished. The browser will ask for location permission when you select **Recommend**.
+
+## Weather and images
+
+Weather data comes from the Open-Meteo forecast API and does not require an API key. Location access is required; browsers allow geolocation on `localhost` and secure HTTPS sites. Product images are hosted by their respective retailers, so an image may become unavailable if its source changes.
+
+## Publish with GitHub Pages
+
+The workflow in `.github/workflows/pages.yml` publishes the `AHHHH/` folder. In the repository settings, open **Pages** and set the build source to **GitHub Actions**. Then push to `main` or run **Deploy Outfit Styler to GitHub Pages** from the Actions tab. After the workflow succeeds, the site will be available at `https://<owner>.github.io/<repository>/`.
